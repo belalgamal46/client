@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import GlobalStyles from "./globalStyles";
+import { Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Tech from "./pages/Tech";
+import Clothes from "./pages/Clothes";
+import Product from "./components/product";
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <GlobalStyles />
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/all" exact>
+            <Home />
+          </Route>
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <Route path="/tech" exact>
+            <Tech />
+          </Route>
+
+          <Route path="/clothes" exact>
+            <Clothes />
+          </Route>
+
+          <Route path="/product/:id" exact>
+            <Product />
+          </Route>
+        </Switch>
+      </>
+    );
+  }
 }
 
 export default App;

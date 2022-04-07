@@ -1,0 +1,4 @@
+export const GET_CATEGORIES = "GET_CATEGORIES";
+export const GET_PRODUCTS = "GET_PRODUCTS";
+export const GET_CURRENCIES = "GET_CURRENCIES";
+export const SET_CURRENCY = "SET_CURRENCY";
