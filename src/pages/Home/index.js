@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
 import { Title } from "./styles/home";
 import NavBar from "../../components/nav";
 import Products from "../../components/products";
