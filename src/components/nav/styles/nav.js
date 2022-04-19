@@ -17,7 +17,9 @@ export const NavLink = styled(Link)`
     ${({ location }) =>
       location.location === location.path ? primary : "none"};
   padding: 1.5rem;
-  font-weight: 600;
+  font-weight: ${({ location }) =>
+    location.location === location.path ? "600" : "400"};
+  font-size: 16px;
   color: ${({ location }) =>
     location.location === location.path ? primary : "#000"};
 `;
@@ -25,8 +27,6 @@ export const NavLink = styled(Link)`
 export const NavMenu = styled.div`
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
-  /* align-content: center; */
 `;
 
 export const NavBtn = styled.button`

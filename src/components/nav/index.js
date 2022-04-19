@@ -7,6 +7,9 @@ import PropTypes from "prop-types";
 import { FirstLetterUpperCase } from "../../utils";
 import Dropdown from "../dropDown";
 import { Link } from "react-router-dom";
+import logo from "../../images/a-logo.svg";
+import arrow from "../../images/arrow.svg";
+import cart from "../../images/Vector.svg";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -66,17 +69,17 @@ class NavBar extends React.Component {
 
           <NavMenu>
             <Link to="/">
-              <img src="a-logo.svg" alt="logo" />
+              <img src={logo} alt="logo" />
             </Link>
           </NavMenu>
 
           <NavMenu>
             <NavBtn onClick={this.handleDropdown} ref={this.ref}>
               $
-              <StyledImg src="arrow.svg" alt="arrowIcon" />
+              <StyledImg src={arrow} alt="arrowIcon" />
             </NavBtn>
             <NavBtn>
-              <img src="Vector.svg" alt="" />
+              <img src={cart} alt="cartIcon" />
             </NavBtn>
             {this.state.dropdown && <Dropdown />}
           </NavMenu>

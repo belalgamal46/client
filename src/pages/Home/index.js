@@ -13,7 +13,7 @@ class Home extends Component {
       <>
         <NavBar />
         <Title>{FirstLetterUpperCase(categories[0]?.name)}</Title>
-        <Products path="/all" path2="/" />
+        <Products location="/all" />
       </>
     );
   }

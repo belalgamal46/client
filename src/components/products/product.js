@@ -1,27 +1,54 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import {
   Container,
   ImageContainer,
   Image,
-  PriceContainer,
-  Symbol,
+  ProductDetails,
+  ProductName,
   Amount,
-} from "./styles";
+  Symbol,
+  PriceContainer,
+  CartBtn,
+  Overlay,
+} from "./styles/product";
+import cartWhite from "../../images/VectorWhite.svg";
 
 class Product extends Component {
+  constructor(props) {
+    super(props);
+    this.routeChange = this.routeChange.bind(this);
+  }
+
+  routeChange() {
+    let path = `/product/${this.props.id}`;
+    this.props.history.push(path);
+  }
+
   render() {
+    const { imageUrl, name, symbol, amount, alt, inStock } = this.props;
     return (
-      <Container>
+      <Container onClick={this.routeChange}>
+        <CartBtn>
+          <img src={cartWhite} alt="cart" />
+        </CartBtn>
+
         <ImageContainer>
-          <Image src="" alt="" />
+          {!inStock && <Overlay>OUT OF STOCK</Overlay>}
+          <Image src={imageUrl[0]} alt={alt} inStock={inStock} />
         </ImageContainer>
-        <PriceContainer>
-          <Symbol>symbol</Symbol>
-          <Amount>amount</Amount>
-        </PriceContainer>
+
+        <ProductDetails inStock={inStock}>
+          <ProductName>{name}</ProductName>
+          <PriceContainer>
+            <Symbol>{symbol}</Symbol>
+            <Amount>{amount}</Amount>
+          </PriceContainer>
+        </ProductDetails>
       </Container>
     );
   }
 }
 
-export default Product;
+export default withRouter(Product);
