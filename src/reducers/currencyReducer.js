@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { GET_CURRENCIES, SET_CURRENCY } from "../actions/types";
 
 const initialState = {

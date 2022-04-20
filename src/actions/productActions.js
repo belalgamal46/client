@@ -20,6 +20,7 @@ export const getProduct = (productId) => async (dispatch) => {
       data: graphqlQuery,
     });
 
+
     dispatch({
       type: GET_PRODUCT,
       payload: response.data.data.product,

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { GET_PRODUCT } from "../actions/types";
 
 const initialState = {
